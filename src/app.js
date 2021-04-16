@@ -6,6 +6,9 @@ const geocode = require('./utils/geocode');
 const forecast = require('./utils/forecast');
 
 const app = express();
+//process.env.PORT - heroku environment port
+const port = process.env.PORT || 3000;
+
 //ruta za express config
 const publicDirPath = path.join(__dirname, '../public');
 //handlebar trazi da hbs fajlovi budu unutar views foldera
@@ -97,6 +100,6 @@ app.get('*', (req, res) => {
     })
 })
 
-app.listen(3000, () => {
-    console.log('Server up and running!')
+app.listen(port, () => {
+    console.log(`Server is running on port ${port}`);
 })
